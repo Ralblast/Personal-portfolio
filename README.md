@@ -64,7 +64,6 @@ npm install
 npm run dev
 ```
 
-Visit `http://localhost:5173`
 
 ### Build for Production
 
