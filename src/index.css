@@ -18,6 +18,16 @@ body {
   color: var(--text-body);
   background-color: var(--bg-base);
   transition: background-color 0.2s ease, color 0.2s ease;
+  /* Subtle background texture for depth */
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+[data-theme="dark"] body {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.02) 1px, transparent 0);
+  background-size: 24px 24px;
 }
 
 :root {
@@ -176,9 +186,6 @@ section:nth-child(even) {
 }
 
 .theme-toggle {
-  position: fixed;
-  top: var(--space-md);
-  right: var(--space-md);
   background-color: transparent;
   border: none;
   padding: var(--space-xs);
@@ -187,7 +194,6 @@ section:nth-child(even) {
   align-items: center;
   justify-content: center;
   transition: opacity 0.2s ease;
-  z-index: 1000;
   opacity: 0.6;
 }
 
@@ -214,6 +220,28 @@ section:nth-child(even) {
   letter-spacing: 0.05em;
   color: var(--text-muted);
 }
+
+/* Subtle fade-in animation for sections */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* TEMPORARILY DISABLED FOR TESTING
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+*/
 
 @media (max-width: 768px) {
   :root {

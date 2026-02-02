@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ArrowUpRight, Github } from 'lucide-react';
 import './Projects.css';
 
 const Projects = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const projects = [
     {
       title: 'Healthcare Symptom Checker',
@@ -21,7 +42,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="projects">
+    <section id="projects" className="projects fade-in" ref={sectionRef}>
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">Projects</h2>

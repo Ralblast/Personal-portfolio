@@ -1,7 +1,28 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Skills.css';
 
 const Skills = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const skillGroups = [
     { category: 'Languages', skills: ['Java', 'JavaScript (ES6+)', 'SQL'] },
     { category: 'Frontend', skills: ['React.js', 'Redux Toolkit', 'Tailwind CSS', 'HTML5/CSS3'] },
@@ -12,7 +33,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="skills">
+    <section id="skills" className="skills fade-in" ref={sectionRef}>
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">Skills</h2>

@@ -7,13 +7,13 @@ import Education from './components/education/Education';
 import Awards from './components/awards/Awards';
 import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
-import ThemeToggle from './components/common/ThemeToggle';
+import Header from './components/common/Header';
 import './index.css';
 
 function App() {
   return (
     <div className="App">
-      <ThemeToggle />
+      <Header />
       <Hero />
       <About />
       <Skills />

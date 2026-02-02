@@ -11,6 +11,32 @@
 
 .project {
   padding: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  border-radius: 8px;
+  padding: var(--space-md);
+  margin: calc(var(--space-md) * -1);
+  border: 1px solid transparent;
+}
+
+.project:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  background-color: var(--bg-subtle);
+  border-color: var(--border-subtle);
+}
+
+[data-theme="dark"] .project:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  background-color: var(--bg-subtle);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project {
+    transition: none;
+  }
+  .project:hover {
+    transform: none;
+  }
 }
 
 .project-title-row {
