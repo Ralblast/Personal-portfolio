@@ -1,0 +1,24 @@
+.about {
+  background-color: var(--bg-subtle);
+}
+
+.about-content {
+  max-width: 680px;
+}
+
+.about-text {
+  font-size: var(--font-size-base);
+  color: var(--text-body);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-md);
+}
+
+.about-text:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .about-text {
+    font-size: var(--font-size-sm);
+  }
+}
