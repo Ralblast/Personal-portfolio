@@ -116,7 +116,7 @@ Update component files in `src/components/` folders.
 
 ## Contact
 
-- [abhisheksingh708226@gmail.com](mailto:abhisheksingh708226@gmail.com)
+- [GMAIL](mailto:abhisheksingh708226@gmail.com)
 - [@Ralblast](https://github.com/Ralblast)
 - [LinkedIn](https://www.linkedin.com/in/abhishek-singh-9b3541245)
 
