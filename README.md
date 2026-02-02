@@ -4,7 +4,7 @@ A minimal, professional portfolio website built with React and Vite. Features a 
 
 ## 🚀 Live Demo
 
-[View Live Site](#) <!-- Add your deployed URL here -->
+[View Live Site](https://portfolio7566.vercel.app/)
 
 ## ✨ Features
 
