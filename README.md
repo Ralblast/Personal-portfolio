@@ -2,11 +2,11 @@
 
 A minimal, professional portfolio website built with React and Vite. Features a clean, typography-first design that prioritizes clarity and professionalism.
 
-## 🚀 Live Demo
+## Live Demo
 
 [View Live Site](https://portfolio7566.vercel.app/)
 
-## ✨ Features
+## Features
 
 - **Typography-First Design** - Inter font family, clean hierarchy
 - **Dark/Light Mode** - Theme toggle with localStorage persistence
@@ -15,14 +15,14 @@ A minimal, professional portfolio website built with React and Vite. Features a 
 - **Clean Code Structure** - Organized component folders
 - **Zero Dependencies** - Pure CSS, no UI frameworks
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - React 19
 - Vite 7
 - Lucide React (icons)
 - CSS3 (custom design system)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -41,7 +41,7 @@ src/
 └── index.css
 ```
 
-## 🏃 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -76,7 +76,7 @@ npm run build
 npm run preview
 ```
 
-## 🚀 Deployment
+## Deployment
 
 ### Vercel (Recommended)
 
@@ -89,7 +89,7 @@ npm run preview
 1. Build: `npm run build`
 2. Publish directory: `dist`
 
-## 🎨 Customization
+## Customization
 
 ### Colors
 
@@ -108,20 +108,20 @@ Edit CSS variables in `src/index.css`:
 
 Update component files in `src/components/` folders.
 
-## 📝 Design Philosophy
+## Design Philosophy
 
 - **Minimal** - No unnecessary decoration
 - **Professional** - Clean, credible aesthetic  
 - **Dense** - Optimized for quick scanning
 - **Accessible** - Semantic HTML, high contrast
 
-## 📧 Contact
+## Contact
 
-- **Email**: abhisheksingh708226@gmail.com
-- **GitHub**: [@Ralblast](https://github.com/Ralblast)
-- **LinkedIn**: [Abhishek Singh](https://www.linkedin.com/in/abhishek-singh-9b3541245)
+- [abhisheksingh708226@gmail.com](mailto:abhisheksingh708226@gmail.com)
+- [@Ralblast](https://github.com/Ralblast)
+- [LinkedIn](https://www.linkedin.com/in/abhishek-singh-9b3541245)
 
-## 📄 License
+## License
 
 MIT License - feel free to use for your own portfolio
 
