@@ -1,0 +1,19 @@
+.cursor-spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 899;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+[data-theme="dark"] .cursor-spotlight {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce), (hover: none) {
+  .cursor-spotlight {
+    display: none;
+  }
+}

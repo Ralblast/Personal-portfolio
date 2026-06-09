@@ -1,5 +1,5 @@
 .projects {
-  background-color: var(--bg-base);
+  background-color: transparent;
 }
 
 .projects-list {
@@ -10,24 +10,53 @@
 }
 
 .project {
-  padding: 0;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease;
   border-radius: 8px;
   padding: var(--space-md);
   margin: calc(var(--space-md) * -1);
   border: 1px solid transparent;
 }
 
+/* boundary-only highlight: the outline lights up, no filled background */
 .project:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  background-color: var(--bg-subtle);
-  border-color: var(--border-subtle);
+  border-color: var(--accent);
 }
 
-[data-theme="dark"] .project:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  background-color: var(--bg-subtle);
+/* per-card spotlight: a soft pool of light follows the cursor inside the card */
+.project::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    220px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(0, 0, 0, 0.05),
+    transparent 70%
+  );
+}
+
+[data-theme="dark"] .project::before {
+  background: radial-gradient(
+    240px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 210, 140, 0.1),
+    transparent 70%
+  );
+}
+
+.project:hover::before {
+  opacity: 1;
+}
+
+/* keep the card's text above the spotlight layer */
+.project > * {
+  position: relative;
+  z-index: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -24,20 +24,27 @@ const Projects = () => {
     return () => observer.disconnect();
   }, []);
 
+  // feed the cursor position into CSS vars so a soft light tracks it inside the card
+  const onCardMove = (e) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`);
+    e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
+  };
+
   const projects = [
+    {
+      title: 'VIT-AP Attendance Planner',
+      tech: 'React 19 • Firebase • Firestore • Vercel • Tailwind CSS • Node.js',
+      description: 'A full-stack attendance forecasting app for 5,000+ students that picked up 1,000+ visits and 40+ daily active users in its first 1.5 months. It runs a hybrid ML risk engine (a CART decision-tree classifier plus weighted formula scoring with a "worst-label-wins" ensemble) alongside a statistical forecast built on linear regression with EWMA smoothing (α=0.4) and 95% confidence intervals. The same analytics engine powers both the React UI and the Vercel serverless functions, and it sends automated email and Telegram alerts through Vercel Cron with per-user throttling and Firebase Admin token verification.',
+      github: 'https://github.com/Ralblast/vit-ap-attendance-planner',
+      live: 'https://vit-ap-attendance-planner.vercel.app/'
+    },
     {
       title: 'Healthcare Symptom Checker',
       tech: 'React • Node.js • Express • MongoDB • Grok AI',
-      description: 'Built an AI-powered health assessment app with Grok AI integration for intelligent symptom analysis. Implemented secure backend with Helmet, CORS, rate limiting, and Winston logging. Designed RESTful APIs and Mongoose schemas for query history and medical data. Deployed on Vercel/Render with automated health checks to prevent cold starts.',
+      description: 'An AI-powered health app that uses Grok AI to analyze symptoms and suggest possible conditions. The backend is locked down with Helmet, CORS, rate limiting, and Winston logging, and the RESTful APIs and Mongoose schemas track query history and condition data. It is deployed on Vercel and Render with automated health checks so it does not cold-start.',
       github: 'https://github.com/Ralblast/HealthCare-Symptom-Checker',
       live: 'https://health-care-symptom-checker-seven.vercel.app'
-    },
-    {
-      title: 'VIT-AP Attendance Planner',
-      tech: 'React • JavaScript ES6+ • Tailwind CSS',
-      description: 'Developed attendance calculator serving 5,000+ students with 1,000+ visits in 1.5 months. Engineered dynamic calculation system handling 47 course slots and 12 calendar events. Built desktop-first UI with dark/light theme, interactive calendars, and visualizations. Achieved 100% calculation accuracy and 80% reduction in manual computation time.',
-      github: 'https://github.com/Ralblast/vit-ap-attendance-planner',
-      live: 'https://vit-ap-attendance-planner.vercel.app/'
     }
   ];
 
@@ -49,7 +56,7 @@ const Projects = () => {
         </div>
         <div className="projects-list">
           {projects.map((project, index) => (
-            <article key={index} className="project">
+            <article key={index} className="project" onMouseMove={onCardMove}>
               {/* Title and links on same line */}
               <div className="project-title-row">
                 <h3 className="project-title">{project.title}</h3>

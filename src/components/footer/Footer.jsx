@@ -21,7 +21,7 @@ const Footer = () => {
               GitHub
             </a>
             <a 
-              href="https://www.linkedin.com/in/abhishek-singh-9b3541245" 
+              href="https://www.linkedin.com/in/abhisheksingh7566/"
               target="_blank" 
               rel="noopener noreferrer"
               className="footer-link"

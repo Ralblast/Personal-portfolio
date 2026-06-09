@@ -31,13 +31,15 @@ const About = () => {
         </div>
         <div className="about-content">
           <p className="about-text">
-            I'm a Computer Science student at VIT-AP University focused on full-stack development. 
-            My work ranges from AI-powered healthcare tools to attendance systems used by 5,000+ students.
+            I'm a developer who likes owning a product end to end, taking something from a rough
+            requirement to designed, built, tested, and actually running in front of users. I graduated
+            in Computer Science from VIT-AP in 2026 and feel most at home in the MERN stack, though I'll
+            reach for whatever a problem actually needs.
           </p>
           <p className="about-text">
-            I enjoy building complete solutions that solve real problems, working across frontend, 
-            backend, and database layers. Currently deepening my expertise in React, Node.js, and 
-            database design while actively solving DSA problems (180+ on LeetCode).
+            On my own time I've built an AI-powered healthcare symptom checker and an attendance-forecasting
+            app that 5,000+ students rely on. Right now I'm digging into generative AI and how to build real
+            products on top of it.
           </p>
         </div>
       </div>

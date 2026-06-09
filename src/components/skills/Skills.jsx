@@ -25,11 +25,13 @@ const Skills = () => {
 
   const skillGroups = [
     { category: 'Languages', skills: ['Java', 'JavaScript (ES6+)', 'SQL'] },
-    { category: 'Frontend', skills: ['React.js', 'Redux Toolkit', 'Tailwind CSS', 'HTML5/CSS3'] },
-    { category: 'Backend', skills: ['Node.js', 'Express.js', 'Mongoose', 'RESTful APIs', 'JWT'] },
-    { category: 'Data', skills: ['MongoDB', 'PostgreSQL'] },
-    { category: 'Tools', skills: ['Git', 'Postman', 'Vercel', 'Render'] },
-    { category: 'Fundamentals', skills: ['DSA', 'OOP', 'DBMS', 'OS'] }
+    { category: 'Frontend', skills: ['React.js', 'Vite', 'Tailwind CSS', 'HTML5/CSS3'] },
+    { category: 'Backend', skills: ['Node.js', 'Express.js', 'Mongoose', 'RESTful APIs', 'JWT', 'Firebase Admin SDK'] },
+    { category: 'Databases', skills: ['MongoDB (Atlas)', 'Firestore', 'PostgreSQL'] },
+    { category: 'Testing', skills: ['Jest', 'Playwright'] },
+    { category: 'Tools', skills: ['Git', 'GitHub', 'Postman', 'Vercel', 'Render', 'Hostinger VPS', 'Cloudinary'] },
+    { category: 'AI', skills: ['Generative AI', 'LLM API Integration', 'Prompt Engineering', 'Zapier', 'Claude Code'] },
+    { category: 'Fundamentals', skills: ['DSA', 'OOP', 'DBMS', 'OS', 'SDLC'] }
   ];
 
   return (

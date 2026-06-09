@@ -1,13 +1,56 @@
 .hero {
-  padding: var(--space-xl) 0 var(--space-lg) 0;
+  padding: var(--space-xl) 0 var(--space-2xl) 0;
   min-height: auto;
   display: flex;
   align-items: center;
-  background-color: var(--bg-base);
+  /* transparent so the night sky / particle field shows behind the intro */
+  background-color: transparent;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
 }
 
 .hero-content {
   max-width: 680px;
+  flex: 1 1 420px;
+}
+
+.hero-photo {
+  flex-shrink: 0;
+}
+
+.hero-photo img {
+  display: block;
+  width: 220px;
+  height: 260px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-photo img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="dark"] .hero-photo img:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo img {
+    transition: none;
+  }
+  .hero-photo img:hover {
+    transform: none;
+  }
 }
 
 .hero-title {
@@ -34,10 +77,67 @@
   line-height: var(--line-height-relaxed);
 }
 
+/* typewriter role rotator in the subtitle */
+.role-rotator {
+  color: var(--text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.role-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background-color: var(--accent);
+  animation: role-caret-blink 1s steps(1, end) infinite;
+}
+
+@keyframes role-caret-blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
 .hero-links {
   display: flex;
+  align-items: center;
   gap: var(--space-lg);
   flex-wrap: wrap;
+}
+
+/* résumé download — sits in the social row and inherits its button look, but must
+   widen to fit its label + icon. The extra-specific selector overrides the fixed
+   38px width that .hero-social a applies to the square icon buttons. */
+.hero-social .hero-resume {
+  width: auto;
+  height: 38px;
+  padding: 0 var(--space-md);
+  margin-left: var(--space-2xs);
+  gap: var(--space-2xs);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.hero-resume:hover {
+  color: var(--accent-hover);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.hero-resume-icon {
+  transition: transform 0.2s ease;
+}
+
+.hero-resume:hover .hero-resume-icon {
+  transform: translateY(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-resume,
+  .hero-resume:hover,
+  .hero-resume-icon {
+    transform: none;
+  }
 }
 
 .hero-links .link-subtle {
@@ -52,6 +152,38 @@
   color: var(--accent-hover);
 }
 
+.hero-social {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.hero-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-social a:hover {
+  color: var(--accent-hover);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-social a:hover {
+    transform: none;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     padding: var(--space-lg) 0;
@@ -63,5 +195,21 @@
   
   .hero-description {
     font-size: var(--font-size-sm);
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .hero-photo {
+    order: -1;
+  }
+
+  .hero-photo img {
+    width: 150px;
+    height: 180px;
+    border-radius: 12px;
   }
 }

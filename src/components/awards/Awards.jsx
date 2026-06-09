@@ -2,6 +2,13 @@ import React from 'react';
 import './Awards.css';
 
 const Awards = () => {
+  // soft light that tracks the cursor inside each award row
+  const onCardMove = (e) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`);
+    e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
+  };
+
   const awards = [
     {
       title: 'Runner-up, V-Launch Pad 2024 Business Plan Competition',
@@ -43,7 +50,8 @@ const Awards = () => {
         </div>
         <div className="awards-list">
           {awards.map((award, index) => (
-            <div key={index} className="award-item">
+            <div key={index} className="award-item" onMouseMove={onCardMove}>
+              <span className="award-index">{String(index + 1).padStart(2, '0')}</span>
               <div className="award-content">
                 <h3 className="award-title">{award.title}</h3>
                 <p className="award-organization">{award.organization}</p>

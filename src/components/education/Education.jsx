@@ -38,7 +38,7 @@ const Education = () => {
               </div>
               <span className="education-year">2022 - 2026</span>
             </div>
-            <p className="education-gpa">GPA: 8.17 (through 7th semester)</p>
+            <p className="education-gpa">GPA: 8.21 (through 7th semester)</p>
           </div>
           
           <div className="education-item">

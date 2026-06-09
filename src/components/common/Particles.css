@@ -1,0 +1,35 @@
+/* Sits behind every section (negative z-index keeps it under in-flow content while
+   staying above the body backdrop). Never intercepts clicks, scrolls, or selection.
+   It's taller than the viewport (overscan) so the scroll parallax can shift it
+   without ever revealing an empty edge — the 110px overscan matches PARALLAX_SHIFT. */
+.particles-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(100vh + 110px);
+  z-index: -2;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.particles-bg canvas {
+  display: block;
+}
+
+/* Light falloff — only in dark mode. A radial vignette centred on the lamp
+   (top-right): transparent near the bulb so those stars read bright, fading to
+   dark in the far corners. Sits above the canvas but below all content. */
+.sky-falloff {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: radial-gradient(125% 115% at 90% 4%, transparent 0%, transparent 32%, rgba(0, 0, 0, 0.45) 100%);
+}
+
+[data-theme="dark"] .sky-falloff {
+  opacity: 1;
+}
